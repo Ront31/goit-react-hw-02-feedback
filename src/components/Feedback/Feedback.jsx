@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Feedback.module.css';
+import { Statistic } from './Statisctic/Staticts';
 
 export class Feedback extends React.Component {
   state = {
@@ -60,14 +61,13 @@ export class Feedback extends React.Component {
             Bad
           </button>
         </div>
-        <div>
-          <h2>Statistics</h2>
-          <p>Good: {this.state.good}</p>
-          <p>Neutral: {this.state.neutral}</p>
-          <p>Bad: {this.state.bad}</p>
-          <p>Total: {this.countTotalFeedback()}</p>
-          <p>Positive feedback: {this.countPositiveFeedbackPercentage()}%</p>
-        </div>
+        <Statistic
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
+        />
       </div>
     );
   }
